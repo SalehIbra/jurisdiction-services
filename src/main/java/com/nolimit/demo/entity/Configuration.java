@@ -13,7 +13,7 @@ public class Configuration {
     @Column(name = "configuration_id")
     private Long id;
 
-    @Column(name = "key")
+    @Column(name = "config_key")
     private String key;
 
     @Column(name = "definition")
