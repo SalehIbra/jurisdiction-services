@@ -9,7 +9,7 @@ import java.util.List;
 @Table(name = "jurisdiction")
 public class Jurisdiction {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="jurisdiction_id")
     private Long id;
 
