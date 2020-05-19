@@ -1,0 +1,103 @@
+body,html {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    font-size: 13px;
+    font-family: sans-serif;
+    background-color: ghostwhite;
+}
+
+.bg {
+    overflow: auto;
+    background-blend-mode: soft-light ;
+}
+
+table, th, tr, td {
+ border: 1px solid black;
+}
+.jur_table {
+    border-collapse: collapse;
+    width: 55%;
+    text-align: center;
+    margin: 0px auto;
+    border-radius: 20px;
+    font-size: 13px;
+}
+
+.jur_table, th {
+    background-color: #FDFD96;
+    line-height: 2.5;
+    font-weight:bold;
+    text-align: center;
+}
+
+.jur_table, tr {
+    padding-left: 10px;
+    width:50%;
+    font-weight: normal;
+}
+
+#header {
+    line-height: 1;
+    font-size: 19px;
+    font-weight: bold;
+    text-align: center;
+    -webkit-border-radius: 5px 5px 0px 0px;
+    border: none;
+    padding-left: 10px;
+    padding-bottom: 12px;
+}
+#rowcount {
+    font-size: 12px;
+    font-weight:normal;
+    margin-bottom : 0px ;
+    margin-right: 20%;
+}
+
+.btn_link{
+    border:none;
+    color: black;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top : 0px ;
+    margin-left: 2px;
+    font-weight: normal;
+    text-decoration: underline;
+}
+.btn_link:hover{
+    color: #78BD20;
+    text-decoration: underline;
+}
+
+table tr th {
+    -webkit-border-radius: 5px 5px 0px 0px;
+}
+
+tr:nth-child(even) {
+    background-color: white;
+    line-height: 2.5;
+}
+tr:nth-child(odd) {
+    background-color: #F0F2F0;
+    line-height: 2.5;
+}
+.caption_table{
+    width: 99%;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+#new_code_div{
+    visibility: hidden;
+    border: 0.5px dashed;
+    width: 50%;
+    margin: 0px auto;
+    border: 0.5px dot-dash gray;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    text-align: left;
+}
+label{
+    font-weight: bold;
+    margin-left: 3px;
+}

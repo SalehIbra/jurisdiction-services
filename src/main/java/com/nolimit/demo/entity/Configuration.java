@@ -9,7 +9,7 @@ import java.util.List;
 public class Configuration {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "configuration_id")
     private Long id;
 
