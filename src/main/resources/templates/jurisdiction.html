@@ -2,11 +2,11 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="https://www.w3schools.com/lib/w3.js"></script>
     <link href="https://www.w3schools.com/w3css/4/w3.css" rel="stylesheet"/>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"/>
-    <link rel="stylesheet" href="list.css"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <link rel="stylesheet" href="css/main.css"/>
     <title>Jurisdictions List</title>
 </head>
 <script>
@@ -16,17 +16,22 @@
 </script>
 <body>
 
-<div class="bg">
-    <table class="caption_table">
-        <caption id="header">
-            <div align="left">
-                <button align="left" class="btn_link"><a th:href="@{/list}"> Home</a></button>
+<div class = "main-dev" >
+    <nav class="nav_header">
+        <ul >
+            <div style="display: inline;float: left">
+                <a class="jas_links" th:href="@{/}">Home</a>&nbsp&nbsp
             </div>
+        </ul>
+
+    </nav>
+    <br />
+   <table class="caption_table">
+        <caption id="header">
             List of Jurisdictions codes<br/>
             <div align="right" id="rowcount"></div>
         </caption>
     </table>
-
     <table id="jur_list" class="jur_table">
         <thead>
         <tr>
@@ -52,9 +57,9 @@
     <form action="#" th:action="@{/saveJurisdiction}" th:object="${newJurisdiction}" method="post">
         <br/>
         <label>Jurisdiction code : </label>&nbsp&nbsp;<input type="text" th:field="*{code}"/>
-        <div style="clear: both; display: block; height: 10px;"></div>
+        <div class="input-div"></div>
         <label>Jurisdiction name : </label>&nbsp;<input  type="text" th:field="*{name}"/>
-        <div style="clear: both; display: block; height: 10px;"></div>
+        <div class="input-div"></div>
         <input type="submit"  value="Save" style="margin-left: 20%"></input>
     </form>
     <br/>
