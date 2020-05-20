@@ -1,0 +1,154 @@
+body,html {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    font-size: 13px;
+    font-family: sans-serif;
+    background-color: ghostwhite;
+}
+.main-dev{
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 10px;
+}
+
+th, tr, td {
+    border: 1px solid black;
+}
+.jur_table {
+    border-collapse: collapse;
+    width: 55%;
+    text-align: center;
+    margin: 0px auto;
+    font-size: 13px;
+    border: 1px solid black;
+}
+
+.jurConfig_table {
+    border-collapse: collapse;
+    width: 100%;
+    text-align: center;
+    margin: 0px auto;
+    font-size: 13px;
+    border: 1px solid black;
+}
+
+
+th {
+    background-color: #F8DE7E;
+    line-height: 2.5;
+    font-weight:bold;
+    text-align: center;
+}
+
+tr {
+    padding-left: 10px;
+    width:50%;
+    font-weight: normal;
+}
+
+
+
+tr:nth-child(even) {
+    background-color: white;
+    line-height: 2.5;
+}
+tr:nth-child(odd) {
+    background-color: #F0F2F0;
+    line-height: 2.5;
+}
+
+#header {
+    line-height: 1;
+    font-size: 19px;
+    font-weight: bold;
+    text-align: center;
+    -webkit-border-radius: 5px 5px 0px 0px;
+    border: none;
+    padding-left: 10px;
+    padding-bottom: 12px;
+}
+
+#rowcount {
+    font-size: 12px;
+    font-weight:normal;
+    margin-bottom : 0px ;
+    margin-right: 5px;
+}
+
+.caption_table{
+    width: 99%;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+#new_code_div{
+    visibility: hidden;
+    width: 50%;
+    margin: 0px auto;
+    border: 1px dotted;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    text-align: left;
+}
+label{
+    font-weight: bold;
+    margin-left: 3px;
+}
+
+a.jas_links {
+    display: inline-block;
+    padding-left:20px;
+    padding-top: 5px;
+    transition: .3s;
+    font-weight:bold;
+    font-size: 14px;
+}
+
+a.jas_links:hover
+{
+    -webkit-transform: scale(1.2);
+    transform: scale(1.2);
+}
+
+nav.nav-header {
+    width: 100%;
+    margin: 10px 0; }
+
+ul {
+    list-style: none;
+    overflow: hidden;
+    padding-left: 10px;
+    padding-right: 10px;
+    background-color: #B2BEB5;
+}
+
+a.sort-by:before,
+a.sort-by:after {
+    border: 4px solid transparent;
+    content: "";
+    display: block;
+    height: 0;
+    right: 5px;
+    top: 50%;
+    position: absolute;
+    width: 0;
+}
+a.sort-by:before {
+    border-bottom-color: #666;
+    margin-top: -9px;
+}
+a.sort-by:after {
+    border-top-color: #666;
+    margin-top: 1px;
+}
+
+#save-button{
+    argin-left: 2px;
+    font-weight: bold;
+}
+.input-div{
+    clear: both;
+    display: block;
+    height: 10px;
+}

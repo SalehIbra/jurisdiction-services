@@ -2,9 +2,74 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <script src="https://www.w3schools.com/lib/w3.js"></script>
+    <link href="https://www.w3schools.com/w3css/4/w3.css" rel="stylesheet"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="css/main.css"/>
+    <title>Jurisdictions Config List</title>
 </head>
+<script>
+    // get the rows count
+    $(document).ready(function () {
+        var totalRowCount = $('#jurConfig_list >tbody >tr:visible').length;
+        document.getElementById("rowcount").innerHTML = "Count: " + totalRowCount;
+    });
+
+</script>
+
 <body>
+<div class = "main-dev">
+    <nav class="nav-header">
+        <ul>
+            <div style="display: inline;float: left">
+                <a class="jas_links" th:href="@{/list}">Jurisdiction Codes</a>&nbsp&nbsp
+            </div>
+
+            <div align="right" style="display: inline;float: right"><label>Search : </label>&nbsp&nbsp
+                <input type="text" id="search" onkeyup="searchTable()" class="search_input"></div>
+        </ul>
+    </nav>
+    <form action="#" th:action="@{/new}" method="post">
+        <input id="save-button" type="submit" value="Add / Update value"/>
+    </form>
+    <div align="right" id="rowcount"></div>
+    <div>
+        <div>
+            <table id="jurConfig_list" class="jurConfig_table">
+                <thead>
+                <tr>
+                    <th style="width: 10% ">
+                        <div><a href="#" class="sort-by">Code</a></div>
+                    </th>
+                    <th style="width: 15% ">
+                        <div><a href="#" class="sort-by">Config Key</a></div>
+                    </th>
+                    <th style="width: 25% ">
+                        <div><a href="#" class="sort-by">Config Value</a></div>
+                    </th>
+                    <th style="width: 25% ">
+                        <div><a href="#" class="sort-by">Definition</a></div>
+                    </th>
+                    <th style="width: 25% ">
+                        <div><a href="#" class="sort-by">Comments</a></div>
+                    </th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="jurConfigList : ${jurisdictionConfigs} " class="item">
+                    <td th:text="${jurConfigList.getJurisdiction().getCode()}"></td>
+                    <td th:text="${jurConfigList.getConfiguration().getKey()}"></td>
+                    <td th:text="${jurConfigList.getValue()}"></td>
+                    <td th:text="${jurConfigList.getConfiguration().getDefinition()}"></td>
+                    <td th:text="${jurConfigList.getComment()}"></td>
+                </tr>
+                </tbody>
+
+            </table>
+        </div>
+    </div>
+
+</div>
 
 </body>
 </html>

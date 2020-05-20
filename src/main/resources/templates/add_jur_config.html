@@ -1,0 +1,78 @@
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <script src="https://www.w3schools.com/lib/w3.js"></script>
+    <link href="https://www.w3schools.com/w3css/4/w3.css" rel="stylesheet"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <title>Add Jurisdictions Config</title>
+</head>
+<style>
+    body, html {
+        font-size: 12px;
+        font-family: sans-serif;
+        background-color: ghostwhite;
+    }
+
+    .new_div {
+        width: 50%;
+        margin: 0px auto;
+        border: 1px dotted;
+        margin-top: 10px;
+        text-align: left;
+    }
+
+    label {
+        margin-left: 20%;
+        font-weight: bold;
+        font-size: 15px;
+    }
+    #message {
+        font-weight: bold;
+        color: blue;margin-left: 2px;
+    }
+</style>
+<body>
+<div class="new_div" align="center">
+    <label>Add new configuration value</label>
+    <br/>
+    <form action="#" th:action="@{/saveJurisdictionConfig}" th:object="${newJurConfig}"
+          method="post">
+        <table border="0" cellpadding="10">
+            <tr>
+                <td>Jurisdiction code :</td>
+                <td>
+                    <select th:field="*{jurisdiction}">
+                        <option th:each="jurisdiction : ${jurisdictionList}" th:value="${jurisdiction.getId()}"
+                                th:text="${jurisdiction.getCode()}"></option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>Configuration key :</td>
+                <td>
+                    <select th:field="*{configuration}">
+                        <option th:each="config: ${configurationList}" th:value="${config.getId()}"
+                                th:text="${config.getKey()}"></option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>Value :</td>
+                <td><input type="text" th:field="*{value}"/></td>
+            </tr>
+            <tr>
+                <td>comments :</td>
+                <td><input type="text" th:field="*{comment}"/></td>
+            </tr>
+            <tr>
+
+                <td colspan="2">
+                    <button type="submit">Save</button>
+                </td>
+            </tr>
+        </table>
+    </form>
+    <p id = "message" th:text="${message} "></p>
+</div>
+</body>
+</html>
