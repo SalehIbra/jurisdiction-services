@@ -4,40 +4,18 @@
     <script src="https://www.w3schools.com/lib/w3.js"></script>
     <link href="https://www.w3schools.com/w3css/4/w3.css" rel="stylesheet"/>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="css/new.css"/>
     <title>Add Jurisdictions Config</title>
 </head>
-<style>
-    body, html {
-        font-size: 12px;
-        font-family: sans-serif;
-        background-color: ghostwhite;
-    }
-
-    .new_div {
-        width: 50%;
-        margin: 0px auto;
-        border: 1px dotted;
-        margin-top: 10px;
-        text-align: left;
-    }
-
-    label {
-        margin-left: 20%;
-        font-weight: bold;
-        font-size: 15px;
-    }
-    #message {
-        font-weight: bold;
-        color: blue;margin-left: 2px;
-    }
-</style>
 <body>
+<div th:replace="common :: header"></div>
 <div class="new_div" align="center">
-    <label>Add new configuration value</label>
+
+    <label class="title-label">Add new configuration value</label>
     <br/>
-    <form action="#" th:action="@{/saveJurisdictionConfig}" th:object="${newJurConfig}"
+    <form name = "myForm" action="#" th:action="@{/saveJurisdictionConfig}" th:object="${newJurConfig}"
           method="post">
-        <table border="0" cellpadding="10">
+        <table border="0" cellpadding="10" name = "myTable">
             <tr>
                 <td>Jurisdiction code :</td>
                 <td>
@@ -56,9 +34,10 @@
                     </select>
                 </td>
             </tr>
-            <tr>
+            <tr >
                 <td>Value :</td>
-                <td><input type="text" th:field="*{value}"/></td>
+                <td ><input id = "myValue" type="text" th:field="*{value}"/></td>
+                <label id="valid-message" ></label>
             </tr>
             <tr>
                 <td>comments :</td>

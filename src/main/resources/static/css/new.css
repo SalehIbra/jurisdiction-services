@@ -1,0 +1,69 @@
+body, html {
+    font-size: 12px;
+    font-family: sans-serif;
+    background-color: ghostwhite;
+}
+
+td{
+    font-size: 13px;
+    font-weight: bold;
+}
+a.home_links {
+    display: inline-block;
+    padding-left:20px;
+    padding-top: 5px;
+    transition: .3s;
+    font-weight:bold;
+    font-size: 14px;
+}
+
+a.home_links:hover
+{
+    -webkit-transform: scale(1.2);
+    transform: scale(1.2);
+}
+
+nav.nav-header {
+    width: 100%;
+    margin: 10px 0;
+}
+
+ul {
+    list-style: none;
+    overflow: hidden;
+    padding-left: 10px;
+    padding-right: 10px;
+    background-color: #B2BEB5;
+}
+
+
+
+.new_div {
+    width: 50%;
+    margin: 0px auto;
+    border: 1px dotted;
+    margin-top: 10px;
+    text-align: left;
+    margin-bottom: 5px;
+}
+
+
+#message {
+    font-weight: bold;
+    color: blue;margin-left: 2px;
+}
+
+.input-div{
+    clear: both;
+    display: block;
+    height: 10px;
+}
+label{
+    font-weight: bold;
+    font-size: 13px;
+    margin-left: 5px;
+}
+.title-label{
+    font-size: 14px;
+    margin-left: 35%;
+}

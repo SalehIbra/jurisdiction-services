@@ -96,7 +96,7 @@ label{
     margin-left: 3px;
 }
 
-a.jas_links {
+a.home_links {
     display: inline-block;
     padding-left:20px;
     padding-top: 5px;
@@ -105,7 +105,7 @@ a.jas_links {
     font-size: 14px;
 }
 
-a.jas_links:hover
+a.home_links:hover
 {
     -webkit-transform: scale(1.2);
     transform: scale(1.2);
@@ -113,7 +113,8 @@ a.jas_links:hover
 
 nav.nav-header {
     width: 100%;
-    margin: 10px 0; }
+    margin: 10px 0;
+}
 
 ul {
     list-style: none;
@@ -146,9 +147,4 @@ a.sort-by:after {
 #save-button{
     argin-left: 2px;
     font-weight: bold;
-}
-.input-div{
-    clear: both;
-    display: block;
-    height: 10px;
 }

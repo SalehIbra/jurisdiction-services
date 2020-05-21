@@ -1,0 +1,27 @@
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <script src="https://www.w3schools.com/lib/w3.js"></script>
+    <link href="https://www.w3schools.com/w3css/4/w3.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="css/new.css"/>
+    <title>Add Jurisdictions </title>
+</head>
+<body>
+<div th:replace="common :: header"></div>
+<div class="new_div" align="center">
+    <label class="title-label">Add new  Jurisdictions</label>
+    <br/>
+    <form action="#" th:action="@{/saveJurisdiction}" th:object="${newJurisdiction}" method="post">
+        <br/>
+        <label>Jurisdiction code : </label>&nbsp&nbsp;<input type="text" th:field="*{code}"/>
+        <label style="color: red;font-weight: bold" th:if="${#fields.hasErrors('code')}" th:errors = "*{code}" > Code can't be blank</label>
+        <div class="input-div"></div>
+        <label>Jurisdiction name : </label>&nbsp;<input  type="text" th:field="*{name}"/>
+        <label style="color: red;font-weight: bold" th:if="${#fields.hasErrors('name')}" th:errors = "*{name}" > Name can't be blank</label>
+        <div class="input-div"></div>
+        <input type="submit"  value="Save" style="font-weight: bold;margin-left: 10px"></input>
+    </form>
+    <br/>
+</div>
+</body>
+</html>

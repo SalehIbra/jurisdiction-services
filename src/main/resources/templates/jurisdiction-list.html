@@ -9,22 +9,10 @@
     <link rel="stylesheet" href="css/main.css"/>
     <title>Jurisdictions List</title>
 </head>
-<script>
-    function showNewCodeDiv() {
-        document.getElementById("new_code_div").style.visibility = 'visible';
-    }
-</script>
 <body>
 
 <div class = "main-dev" >
-    <nav class="nav_header">
-        <ul >
-            <div style="display: inline;float: left">
-                <a class="jas_links" th:href="@{/}">Home</a>&nbsp&nbsp
-            </div>
-        </ul>
-
-    </nav>
+    <<div th:replace="common :: header"></div>
     <br />
    <table class="caption_table">
         <caption id="header">
@@ -50,20 +38,11 @@
 <br/>
 
 <div style="margin-left: 25%">
-    <button id="add_code" onclick="showNewCodeDiv()">Add new code</button>
+    <form th:action="@{/newJurisdiction}" method="post">
+    <input style="font-weight: bold" type="submit" value="Add new code" />
+    </form>
 </div>
 <br/>
-<div id="new_code_div" align="center">
-    <form action="#" th:action="@{/saveJurisdiction}" th:object="${newJurisdiction}" method="post">
-        <br/>
-        <label>Jurisdiction code : </label>&nbsp&nbsp;<input type="text" th:field="*{code}"/>
-        <div class="input-div"></div>
-        <label>Jurisdiction name : </label>&nbsp;<input  type="text" th:field="*{name}"/>
-        <div class="input-div"></div>
-        <input type="submit"  value="Save" style="margin-left: 20%"></input>
-    </form>
-    <br/>
-</div>
 
 </body>
 </html>
