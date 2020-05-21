@@ -1,6 +1,7 @@
 package com.nolimit.demo.entity;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import java.util.ArrayList;
 import java.util.List;
@@ -13,10 +14,11 @@ public class Jurisdiction {
     @Column(name="jurisdiction_id")
     private Long id;
 
-    @NotNull
+    @NotBlank
     @Column(name="jurisdiction_code")
     private String code;
-
+    
+    @NotBlank
     @Column(name="jurisdiction_name")
     private String name;
 
@@ -26,7 +28,7 @@ public class Jurisdiction {
     public Jurisdiction() {
     }
 
-    public Jurisdiction(@NotNull String code, String name) {
+    public Jurisdiction(String code, String name) {
         this.code = code;
         this.name = name;
     }

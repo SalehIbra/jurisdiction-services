@@ -6,21 +6,23 @@ import com.nolimit.demo.dao.JurisdictionService;
 import com.nolimit.demo.entity.Configuration;
 import com.nolimit.demo.entity.Jurisdiction;
 import com.nolimit.demo.entity.JurisdictionConfig;
-import org.eclipse.jetty.http.HttpHeader;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestHeader;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @Controller
+@RequestMapping(path = "/")
 public class JurisdictionConfigController {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(JurisdictionConfigController.class);
@@ -34,7 +36,7 @@ public class JurisdictionConfigController {
     @Autowired
     ConfigurationService configurationService;
 
-    @RequestMapping(path = "/")
+    @RequestMapping("/home")
     public String viewMainPage(Model model){
         List<JurisdictionConfig> jurisdictionConfigs = jurisdictionConfigService.getAllJurisdictionConfig();
         model.addAttribute("jurisdictionConfigs",jurisdictionConfigs);
@@ -49,18 +51,30 @@ public class JurisdictionConfigController {
         model.addAttribute("jurisdictions",jurisdictionList);
         model.addAttribute("newJurisdiction",new Jurisdiction());
         LOGGER.info("Load jurisdiction list from jurisdiction table in db ...");
-        return "jurisdiction";
+        return "jurisdiction-list";
     }
+    // create jurisdiction
+    @RequestMapping(path = "/newJurisdiction")
+    public String newJurisdictionConfig(Model model){
+        Jurisdiction newJurisdiction = new Jurisdiction();
+        model.addAttribute("newJurisdiction", newJurisdiction);
+        return "add-jurisdiction";
+    }
+
     // save new jurisdiction in the database and render it in viewer
     @RequestMapping(path = "/saveJurisdiction", method = RequestMethod.POST)
-    public String saveJurisdiction(@ModelAttribute("newJurisdiction") Jurisdiction newJurisdiction){
+    public String saveJurisdiction(@ModelAttribute("newJurisdiction") @Valid Jurisdiction newJurisdiction, BindingResult result){
+        if(result.hasErrors()){
+            LOGGER.info("Binding result error");
+            return "add-jurisdiction";
+        }
         jurisdictionService.saveJurisdiction(newJurisdiction);
         LOGGER.info("New jurisdiction code added ...");
         return "redirect:/list";
     }
 
     // create new page to add jurisdiction config
-    @RequestMapping(path = "/new")
+    @RequestMapping(path = "/newValue")
     public String newJurisdictionConfig(Model model,@ModelAttribute(value = "message") String message){
         List<Jurisdiction> jurisdictionList = jurisdictionService.getAllJurisdictions();
         List<Configuration> configurationList = configurationService.getAllConfiguration();
@@ -69,17 +83,23 @@ public class JurisdictionConfigController {
         model.addAttribute("configurationList", configurationList);
         model.addAttribute("message",message);
         LOGGER.info("Start adding or updating jurisdiction configuration value ...");
-        return "add_jur_config";
+        return "add-jur-config";
     }
 
     @RequestMapping(path = "/saveJurisdictionConfig", method = RequestMethod.POST)
-    public String saveJurisdictionConfig(@ModelAttribute("configValue") JurisdictionConfig configValue, RedirectAttributes attributes){
-        JurisdictionConfig newJurisdictionConfig = new JurisdictionConfig(configValue.getJurisdiction(),configValue.getConfiguration()
-                ,configValue.getValue(),configValue.getComment());
+    public String saveJurisdictionConfig(@ModelAttribute("newJurConfig") JurisdictionConfig newJurConfig, RedirectAttributes attributes, BindingResult result){
+        JurisdictionConfig newJurisdictionConfig = new JurisdictionConfig(newJurConfig.getJurisdiction(),newJurConfig.getConfiguration()
+                ,newJurConfig.getValue(),newJurConfig.getComment());
         String performedAction = jurisdictionConfigService.saveJurisdictionConfig(newJurisdictionConfig);
         attributes.addFlashAttribute("message",performedAction);
         LOGGER.info(performedAction);
-        return "redirect:/new";
+        return "redirect:/newValue";
     }
 
+    @RequestMapping(path = "/deleteJurConfig/{jurId}/{configId}")
+    public String deleteJurisdictionConfig(@PathVariable("jurId") Long jurId ,@PathVariable("configId") Long configId) throws NoSuchFieldException {
+        jurisdictionConfigService.deleteJurisdictionConfig(jurId,configId);
+        LOGGER.info("Jurisdiction configuration value is deleted..");
+        return "redirect:/";
+    }
 }

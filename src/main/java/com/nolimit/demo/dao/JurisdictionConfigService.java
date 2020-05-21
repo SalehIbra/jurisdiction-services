@@ -3,6 +3,7 @@ package com.nolimit.demo.dao;
 import com.nolimit.demo.entity.Configuration;
 import com.nolimit.demo.entity.Jurisdiction;
 import com.nolimit.demo.entity.JurisdictionConfig;
+import com.nolimit.demo.entity.JurisdictionConfigId;
 import com.nolimit.demo.repository.JurisdictionConfigRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -38,4 +39,20 @@ public class JurisdictionConfigService {
             return "New Configuration value added";
         }
     }
+
+    public void deleteJurisdictionConfig(Long jurId, Long configId) throws NoSuchFieldException {
+        JurisdictionConfigId jurisdictionConfigId = new JurisdictionConfigId(jurId,configId);
+        Optional<JurisdictionConfig> jurisdictionConfig = jurisdictionConfigRepository.findById(jurisdictionConfigId);
+        if(jurisdictionConfig.isPresent()){
+            jurisdictionConfigRepository.deleteById(jurisdictionConfigId);
+        } else {
+            throw new NoSuchFieldException("No record with the selected code and key is found");
+        }
+    }
+
+
+//    public String deleteJurisdictionConfig(Jurisdiction jurisdiction, Configuration configuration) {
+//     JurisdictionConfig jurisdictionConfig = new JurisdictionConfig(jurisdiction,configuration);
+//     jurisdictionConfigRepository.findAll(jurisdictionConfig);
+//    }
 }

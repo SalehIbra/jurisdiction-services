@@ -1,6 +1,7 @@
 package com.nolimit.demo.entity;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.util.Objects;
 
 @Entity
@@ -20,6 +21,7 @@ public class JurisdictionConfig {
     @JoinColumn(name = "configuration_id")
     private Configuration configuration;
 
+    @NotNull
     @Column(name = "value")
     private String value;
 
@@ -28,6 +30,7 @@ public class JurisdictionConfig {
 
     public JurisdictionConfig() {
     }
+
 
     public JurisdictionConfig(Jurisdiction jurisdiction, Configuration configuration, String value, String comment) {
         this.jurisdiction = jurisdiction;

@@ -34,4 +34,12 @@ public class JurisdictionService {
         }
     }
 
+    public Jurisdiction getJurisdictionById(Long jurId) throws NoSuchFieldException {
+        Optional<Jurisdiction> jurisdiction = jurisdictionRepository.findById(jurId);
+        if(jurisdiction.isPresent()){
+            return jurisdiction.get();
+        } else {
+            throw new NoSuchFieldException("No jurisdiction with the selected code");
+        }
+    }
 }
