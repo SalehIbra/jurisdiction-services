@@ -29,7 +29,7 @@
 * **Mysql Database setup :**
 
   - Final Product requires External MySql Database, So mysql server should be running.
-  we can install from here : https://dev.mysql.com/downloads/installer/
+  we can install from here : https://dev.mysql.com/downloads/installer/ .
   In mysql run the folowing commands:
    - CREATE DATABASE nolimit_test;
    - CREATE USER 'demo'@'localhost' IDENTIFIED BY 'demo';
