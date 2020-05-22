@@ -35,14 +35,27 @@
    - CREATE USER 'demo'@'localhost' IDENTIFIED BY 'demo';
    - GRANT ALL PRIVILEGES ON nolimit_test.* TO 'demo'@'localhost';
    
+      
+**Note** : To run it in another database or not local mysql server with root or another user you can do this changes in application.properties.
+
+  > DATABASE_PASSWORD=demo
+  
+  > DATABASE_USERNAME=demo
+  
+  > DATABASE_URL=jdbc:mysql://localhost:3306/nolimit_test?createDatabaseIfNotExist=true
+   
 **Note** : we can use docker to run mysql container.
 
 * **How to install and run :**
 
   1 - Clone the project repository to your local machine.
+  
   2 - From IDE , terminal or cmd go to the path directory.
+  
   3 - Run this command : mvn clean install
+  
   4 - After building successfully go to target and run : java -jar demo-0.0.1-SNAPSHOT.jar
+  
   5 - Open home page in browser : http://localhost:9090/home
 
 **Note** : if you have jar file go to step 4 directly.
