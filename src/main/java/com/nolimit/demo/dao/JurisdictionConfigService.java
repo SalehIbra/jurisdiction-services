@@ -50,9 +50,4 @@ public class JurisdictionConfigService {
         }
     }
 
-
-//    public String deleteJurisdictionConfig(Jurisdiction jurisdiction, Configuration configuration) {
-//     JurisdictionConfig jurisdictionConfig = new JurisdictionConfig(jurisdiction,configuration);
-//     jurisdictionConfigRepository.findAll(jurisdictionConfig);
-//    }
 }
