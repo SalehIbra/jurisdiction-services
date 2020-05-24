@@ -13,9 +13,9 @@
 
     <label class="title-label">Add new configuration value</label>
     <br/>
-    <form name = "myForm" action="#" th:action="@{/saveJurisdictionConfig}" th:object="${newJurConfig}"
+    <form name="myForm" action="#" th:action="@{/saveJurisdictionConfig}" th:object="${newJurConfig}"
           method="post">
-        <table border="0" cellpadding="10" name = "myTable">
+        <table border="0" cellpadding="10" name="myTable">
             <tr>
                 <td>Jurisdiction code :</td>
                 <td>
@@ -34,10 +34,11 @@
                     </select>
                 </td>
             </tr>
-            <tr >
+            <tr>
                 <td>Value :</td>
-                <td ><input id = "myValue" type="text" th:field="*{value}"/></td>
-                <label id="valid-message" ></label>
+                <td><input id="myValue" type="text" th:field="*{value}"/>
+                    <label style="color: red;font-weight: bold" th:if="${#fields.hasErrors('value')}"
+                           th:errors="*{value}"> Value can't be blank</label></td>
             </tr>
             <tr>
                 <td>comments :</td>
@@ -51,7 +52,7 @@
             </tr>
         </table>
     </form>
-    <p id = "message" th:text="${message} "></p>
+    <p id="message" th:text="${message} "></p>
 </div>
 </body>
 </html>

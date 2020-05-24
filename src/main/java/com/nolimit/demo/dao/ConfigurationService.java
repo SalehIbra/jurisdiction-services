@@ -15,13 +15,13 @@ public class ConfigurationService {
     @Autowired
     ConfigurationRepository configurationRepository;
 
-    public List<Configuration> getAllConfiguration(){
+    public List<Configuration> getAllConfiguration() {
         return (List<Configuration>) configurationRepository.findAll();
     }
 
     public Configuration getConfigurationById(Long configId) throws NoSuchFieldException {
         Optional<Configuration> configuration = configurationRepository.findById(configId);
-        if(configuration.isPresent()){
+        if (configuration.isPresent()) {
             return configuration.get();
         } else {
             throw new NoSuchFieldException("No confiquration with the selected key");

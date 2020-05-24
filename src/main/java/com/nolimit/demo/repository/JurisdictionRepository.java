@@ -6,7 +6,7 @@ import org.springframework.data.repository.CrudRepository;
 import java.util.List;
 import java.util.Optional;
 
-public interface JurisdictionRepository extends CrudRepository<Jurisdiction,Long> {
+public interface JurisdictionRepository extends CrudRepository<Jurisdiction, Long> {
 
     Optional<Jurisdiction> findByCode(String code);
 

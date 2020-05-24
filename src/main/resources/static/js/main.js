@@ -1,4 +1,3 @@
-
 // search from the table with updating row count
 function searchTable() {
     var input, filter, found, table, tr, td, i, j;

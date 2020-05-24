@@ -19,7 +19,7 @@ public class Configuration {
     @Column(name = "definition")
     private String definition;
 
-    @OneToMany(mappedBy = "configuration",cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "configuration", cascade = CascadeType.ALL)
     private List<JurisdictionConfig> jurisdictions = new ArrayList<>();
 
     public Configuration() {

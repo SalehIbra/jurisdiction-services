@@ -18,22 +18,22 @@ public class JurisdictionConfigService {
     @Autowired
     JurisdictionConfigRepository jurisdictionConfigRepository;
 
-    public List<JurisdictionConfig> getAllJurisdictionConfig(){
+    public List<JurisdictionConfig> getAllJurisdictionConfig() {
         List<JurisdictionConfig> jurisdictionConfigs = jurisdictionConfigRepository.findAll();
-        if (jurisdictionConfigs.size() > 0 ){
+        if (jurisdictionConfigs.size() > 0) {
             return jurisdictionConfigs;
         } else {
             return new ArrayList<JurisdictionConfig>();
         }
     }
 
-    public String saveJurisdictionConfig(JurisdictionConfig jurisdictionConfig){
+    public String saveJurisdictionConfig(JurisdictionConfig jurisdictionConfig) {
 
         Jurisdiction newJurisdiction = jurisdictionConfig.getJurisdiction();
         Configuration newConfiguration = jurisdictionConfig.getConfiguration();
-        Optional<JurisdictionConfig> newJurisdictionConfig = jurisdictionConfigRepository.findByJurisdictionAndConfiguration(newJurisdiction,newConfiguration);
+        Optional<JurisdictionConfig> newJurisdictionConfig = jurisdictionConfigRepository.findByJurisdictionAndConfiguration(newJurisdiction, newConfiguration);
         jurisdictionConfigRepository.save(jurisdictionConfig);
-        if(newJurisdictionConfig.isPresent()){
+        if (newJurisdictionConfig.isPresent()) {
             return "Configuration value updated";
         } else {
             return "New Configuration value added";
@@ -41,9 +41,9 @@ public class JurisdictionConfigService {
     }
 
     public void deleteJurisdictionConfig(Long jurId, Long configId) throws NoSuchFieldException {
-        JurisdictionConfigId jurisdictionConfigId = new JurisdictionConfigId(jurId,configId);
+        JurisdictionConfigId jurisdictionConfigId = new JurisdictionConfigId(jurId, configId);
         Optional<JurisdictionConfig> jurisdictionConfig = jurisdictionConfigRepository.findById(jurisdictionConfigId);
-        if(jurisdictionConfig.isPresent()){
+        if (jurisdictionConfig.isPresent()) {
             jurisdictionConfigRepository.deleteById(jurisdictionConfigId);
         } else {
             throw new NoSuchFieldException("No record with the selected code and key is found");

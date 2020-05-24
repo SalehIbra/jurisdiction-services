@@ -1,4 +1,4 @@
-body,html {
+body, html {
     height: 100%;
     width: 100%;
     margin: 0;
@@ -6,7 +6,8 @@ body,html {
     font-family: sans-serif;
     background-color: ghostwhite;
 }
-.main-dev{
+
+.main-dev {
     padding-left: 10px;
     padding-right: 10px;
     padding-bottom: 10px;
@@ -15,6 +16,7 @@ body,html {
 th, tr, td {
     border: 1px solid black;
 }
+
 .jur_table {
     border-collapse: collapse;
     width: 55%;
@@ -37,22 +39,22 @@ th, tr, td {
 th {
     background-color: #F8DE7E;
     line-height: 2.5;
-    font-weight:bold;
+    font-weight: bold;
     text-align: center;
 }
 
 tr {
     padding-left: 10px;
-    width:50%;
+    width: 50%;
     font-weight: normal;
 }
-
 
 
 tr:nth-child(even) {
     background-color: white;
     line-height: 2.5;
 }
+
 tr:nth-child(odd) {
     background-color: #F0F2F0;
     line-height: 2.5;
@@ -71,18 +73,18 @@ tr:nth-child(odd) {
 
 #rowcount {
     font-size: 12px;
-    font-weight:normal;
-    margin-bottom : 0px ;
+    font-weight: normal;
+    margin-bottom: 0px;
     margin-right: 5px;
 }
 
-.caption_table{
+.caption_table {
     width: 99%;
     padding-left: 5px;
     padding-right: 5px;
 }
 
-#new_code_div{
+#new_code_div {
     visibility: hidden;
     width: 50%;
     margin: 0px auto;
@@ -91,22 +93,22 @@ tr:nth-child(odd) {
     margin-bottom: 5px;
     text-align: left;
 }
-label{
+
+label {
     font-weight: bold;
     margin-left: 3px;
 }
 
 a.home_links {
     display: inline-block;
-    padding-left:20px;
+    padding-left: 20px;
     padding-top: 5px;
     transition: .3s;
-    font-weight:bold;
+    font-weight: bold;
     font-size: 14px;
 }
 
-a.home_links:hover
-{
+a.home_links:hover {
     -webkit-transform: scale(1.2);
     transform: scale(1.2);
 }
@@ -135,16 +137,18 @@ a.sort-by:after {
     position: absolute;
     width: 0;
 }
+
 a.sort-by:before {
     border-bottom-color: #666;
     margin-top: -9px;
 }
+
 a.sort-by:after {
     border-top-color: #666;
     margin-top: 1px;
 }
 
-#save-button{
+#save-button {
     argin-left: 2px;
     font-weight: bold;
 }

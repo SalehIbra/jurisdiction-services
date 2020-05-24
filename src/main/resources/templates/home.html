@@ -57,7 +57,9 @@
                     <td th:text="${jurConfigList.getValue()}"></td>
                     <td th:text="${jurConfigList.getConfiguration().getDefinition()}"></td>
                     <td th:text="${jurConfigList.getComment()}"></td>
-                    <td><a onclick="return confirm('Are you sure you want to delete this item?');" th:href="@{/deleteJurConfig/{id1}/{id2}(id1=${jurConfigList.getJurisdiction().getId()},id2=${jurConfigList.getConfiguration().getId()})}">Delete</a></td>
+                    <td style="color: red"><a onclick="return confirm('Are you sure you want to delete this item?');"
+                                              th:href="@{/deleteJurConfig/{id1}/{id2}(id1=${jurConfigList.getJurisdiction().getId()},id2=${jurConfigList.getConfiguration().getId()})}">Delete</a>
+                    </td>
                 </tr>
                 </tbody>
 
