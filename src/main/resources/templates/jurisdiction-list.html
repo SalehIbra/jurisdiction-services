@@ -11,10 +11,11 @@
 </head>
 <body>
 
-<div class = "main-dev" >
-    <<div th:replace="common :: header"></div>
-    <br />
-   <table class="caption_table">
+<div class="main-dev">
+    <
+    <div th:replace="common :: header"></div>
+    <br/>
+    <table class="caption_table">
         <caption id="header">
             List of Jurisdictions codes<br/>
             <div align="right" id="rowcount"></div>
@@ -23,14 +24,17 @@
     <table id="jur_list" class="jur_table">
         <thead>
         <tr>
-            <th>Jurisdiction Code</th>
-            <th>Jurisdiction Name</th>
+            <th style="width: 35%">Jurisdiction Code</th>
+            <th style="width: 55%">Jurisdiction Name</th>
+            <th style="width: 10%"></th>
         </tr>
         </thead>
         <tbody>
         <tr th:each="jurList : ${jurisdictions}" class="items">
             <td th:text="${jurList.getCode()}"></td>
             <td th:text="${jurList.getName()}"></td>
+            <td style="color:red"><a onclick="return confirm('Are you sure you want to delete this item?');"
+                                     th:href="@{/deleteJurisdiction/{id}(id=${jurList.getId()})}">Delete</a></td>
         </tr>
         </tbody>
     </table>
@@ -39,7 +43,7 @@
 
 <div style="margin-left: 25%">
     <form th:action="@{/newJurisdiction}" method="post">
-    <input style="font-weight: bold" type="submit" value="Add new code" />
+        <input style="font-weight: bold" type="submit" value="Add new code"/>
     </form>
 </div>
 <br/>

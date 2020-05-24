@@ -14,7 +14,8 @@
     <form action="#" th:action="@{/saveJurisdiction}" th:object="${newJurisdiction}" method="post">
         <br/>
         <label>Jurisdiction code : </label>&nbsp&nbsp;<input type="text" th:field="*{code}"/>
-        <label style="color: red;font-weight: bold" th:if="${#fields.hasErrors('code')}" th:errors = "*{code}" > Code can't be blank</label>
+        <label style="color: red;font-weight: bold" th:if="${#fields.hasErrors('code')}" th:errors="*{code}"> Code can't
+            be blank</label>
         <div class="input-div"></div>
         <label>Jurisdiction name : </label>&nbsp;<input  type="text" th:field="*{name}"/>
         <label style="color: red;font-weight: bold" th:if="${#fields.hasErrors('name')}" th:errors = "*{name}" > Name can't be blank</label>

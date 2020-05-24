@@ -1,7 +1,7 @@
 package com.nolimit.demo.entity;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotNull;
+import javax.validation.constraints.NotBlank;
 import java.util.Objects;
 
 @Entity
@@ -21,7 +21,7 @@ public class JurisdictionConfig {
     @JoinColumn(name = "configuration_id")
     private Configuration configuration;
 
-    @NotNull
+    @NotBlank
     @Column(name = "value")
     private String value;
 
@@ -37,7 +37,7 @@ public class JurisdictionConfig {
         this.configuration = configuration;
         this.value = value;
         this.comment = comment;
-        this.id = new JurisdictionConfigId(jurisdiction.getId(),configuration.getId());
+        this.id = new JurisdictionConfigId(jurisdiction.getId(), configuration.getId());
     }
 
 
@@ -88,12 +88,12 @@ public class JurisdictionConfig {
 
         JurisdictionConfig that = (JurisdictionConfig) o;
 
-        return Objects.equals(jurisdiction,that.jurisdiction) &&
-                Objects.equals(configuration,that.configuration);
+        return Objects.equals(jurisdiction, that.jurisdiction) &&
+                Objects.equals(configuration, that.configuration);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(jurisdiction,configuration);
+        return Objects.hash(jurisdiction, configuration);
     }
 }

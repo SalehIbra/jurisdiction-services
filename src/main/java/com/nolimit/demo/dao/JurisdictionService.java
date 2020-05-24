@@ -14,32 +14,32 @@ public class JurisdictionService {
     @Autowired
     JurisdictionRepository jurisdictionRepository;
 
-    public List<Jurisdiction> getAllJurisdictions(){
+    public List<Jurisdiction> getAllJurisdictions() {
 
         return (List<Jurisdiction>) jurisdictionRepository.findAll();
     }
 
-    public Jurisdiction saveJurisdiction(Jurisdiction jurisdiction){
+    public Jurisdiction saveJurisdiction(Jurisdiction jurisdiction) {
         Optional<Jurisdiction> jurisdictionByCode = jurisdictionRepository.findByCode(jurisdiction.getCode());
-        if(jurisdictionByCode.isPresent()){
+        if (jurisdictionByCode.isPresent()) {
             Jurisdiction newJurisdiction = jurisdictionByCode.get();
             newJurisdiction.setName(jurisdiction.getName());
             newJurisdiction = jurisdictionRepository.save(newJurisdiction);
             return newJurisdiction;
 
-        }else {
-          jurisdiction = jurisdictionRepository.save(jurisdiction);
-          return jurisdiction;
+        } else {
+            jurisdiction = jurisdictionRepository.save(jurisdiction);
+            return jurisdiction;
 
         }
     }
 
-    public Jurisdiction getJurisdictionById(Long jurId) throws NoSuchFieldException {
+    public void deleteJurisdiction(Long jurId) throws NoSuchFieldException {
         Optional<Jurisdiction> jurisdiction = jurisdictionRepository.findById(jurId);
-        if(jurisdiction.isPresent()){
-            return jurisdiction.get();
+        if (jurisdiction.isPresent()) {
+            jurisdictionRepository.deleteById(jurId);
         } else {
-            throw new NoSuchFieldException("No jurisdiction with the selected code");
+            throw new NoSuchFieldException("No jurisdiction with the selected code to delete");
         }
     }
 }

@@ -11,18 +11,18 @@ import java.util.List;
 public class Jurisdiction {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name="jurisdiction_id")
+    @Column(name = "jurisdiction_id")
     private Long id;
 
     @NotBlank
-    @Column(name="jurisdiction_code")
+    @Column(name = "jurisdiction_code")
     private String code;
-    
+
     @NotBlank
-    @Column(name="jurisdiction_name")
+    @Column(name = "jurisdiction_name")
     private String name;
 
-    @OneToMany(mappedBy = "jurisdiction",cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "jurisdiction", cascade = CascadeType.ALL)
     private List<JurisdictionConfig> configurations = new ArrayList<>();
 
     public Jurisdiction() {
