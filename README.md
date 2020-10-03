@@ -1,4 +1,4 @@
-# nolimit / Demo
+# Jurisdiction Service
 - This is a test application for jurisdiction services which can be used in gaming an gambling companies to view list of rules or configurations per market.
 - It can provide a machine readable view of the requirements (by creating API), which can then be read by different services/systems to configure depending upon which jurisdictions they are operating in.
 
